@@ -11,18 +11,18 @@ package logikafuzzy;
  */
 public class LibFuzzy {
     
-    private static float output, batasBawah, batasAtas;
+    private static float output, a, b;
     
-    public static float linearTurun(float umur){
-        output = (umur - batasBawah) / (batasAtas - batasBawah);
+    public static float linearNaik(float umur){
+        cekUmur(umur);
+        output = (umur - a) / (b - a);
         
         return output;
     }
     
-    public static float linearNaik(float umur){
-        cekUmur(umur);
-        output = (batasAtas - umur) / (batasAtas - batasBawah);
-        
+    public static float linearTurun(float umur){
+        output = (b - umur) / (b - a);
+           
         return output;
     }
     
@@ -40,24 +40,24 @@ public class LibFuzzy {
     
     private static void cekUmur(float umur){
         if (umur <= 5f){
-            batasBawah = 0f;
-            batasAtas = 5f;
+            a = 0f;
+            b = 5f;
         }
         else if (umur <= 11f){
-            batasBawah = 5f;
-            batasAtas = 11f;
+            a = 5f;
+            b = 11f;
         }
         else if (umur <= 25f){
-            batasBawah = 11f;
-            batasAtas = 25f;
+            a = 11f;
+            b = 25f;
         }
         else if (umur <= 45f){
-            batasBawah = 25f;
-            batasAtas = 45f;
+            a = 25f;
+            b = 45f;
         } 
         else{
-            batasBawah = 45f;
-            batasAtas = 65f;
+            a = 45f;
+            b = 65f;
         }
     }
 }
