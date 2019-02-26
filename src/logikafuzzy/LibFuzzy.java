@@ -14,27 +14,20 @@ public class LibFuzzy {
     private static float output, a, b;
     
     public static float linearNaik(float umur){
-        cekUmur(umur);
-        output = (umur - a) / (b - a);
-        
+        output = (umur - a) / (b - a);        
         return output;
     }
     
     public static float linearTurun(float umur){
-        output = (b - umur) / (b - a);
-           
+        output = (b - umur) / (b - a);           
         return output;
     }
     
     public static float segitiga(float umur){
-        cekUmur(umur);
-        output = 0f;
-        
         return output;
     }
     
-    public static float trapesium(float umur){
-        
+    public static float trapesium(float umur){        
         return output;
     }
     
