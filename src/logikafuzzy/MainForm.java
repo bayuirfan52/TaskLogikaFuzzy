@@ -14,6 +14,10 @@ public class MainForm extends javax.swing.JFrame {
     /**
      * Creates new form MainForm
      */
+    
+    private int input;
+    private double output;
+    
     public MainForm() {
         initComponents();
         setTitle("Logika Fuzzy");
@@ -48,6 +52,11 @@ public class MainForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         calculateLinear.setText("Calculate");
+        calculateLinear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateLinearActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nilai Keanggotaan");
 
@@ -183,6 +192,12 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void calculateLinearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateLinearActionPerformed
+        input = Integer.parseInt(inputLinear.getText().toString());
+        output = LibFuzzy.cekUmur(input);
+        outputLinear.setText(Double.toString(output));
+    }//GEN-LAST:event_calculateLinearActionPerformed
 
     /**
      * @param args the command line arguments
