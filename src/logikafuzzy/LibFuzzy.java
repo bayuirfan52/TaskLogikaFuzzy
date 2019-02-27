@@ -11,32 +11,28 @@ package logikafuzzy;
  */
 public class LibFuzzy {
     
-    private static int output, a, b;
+    private static double output, a, b;
     private static double returnValue;
     
-    private static double linearNaik(int umur){
+    private static double linearNaik(double umur){
         output = (umur - a) / (b - a);
-        System.out.println("a : "+a+", b : "+b);
-        System.out.println(output);
         return output;
     }
     
-    private static double linearTurun(int umur){
-        output = (b - umur) / (b - a);           
-        System.out.println("a : "+a+", b : "+b);
-        System.out.println(output);
+    private static double linearTurun(double umur){
+        output = (b - umur) / (b - a);
         return output;
     }
     
-    private static int segitiga(int umur){
-        return output;
-    }
+//    private static int segitiga(int umur){
+//        return output;
+//    }
+//    
+//    private static int trapesium(int umur){        
+//        return output;
+//    }
     
-    private static int trapesium(int umur){        
-        return output;
-    }
-    
-    public static double cekUmur(int umur){
+    public static double cekUmur(double umur){
         if (umur <= 5){
             returnValue = 1;
         }

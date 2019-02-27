@@ -15,7 +15,7 @@ public class MainForm extends javax.swing.JFrame {
      * Creates new form MainForm
      */
     
-    private int input;
+    private double input;
     private double output;
     
     public MainForm() {
@@ -194,7 +194,7 @@ public class MainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calculateLinearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateLinearActionPerformed
-        input = Integer.parseInt(inputLinear.getText().toString());
+        input = Double.valueOf(inputLinear.getText());
         output = LibFuzzy.cekUmur(input);
         outputLinear.setText(Double.toString(output));
     }//GEN-LAST:event_calculateLinearActionPerformed
