@@ -11,46 +11,59 @@ package logikafuzzy;
  */
 public class LibFuzzy {
     
-    private static float output, a, b;
+    private static int output, a, b;
+    private static double returnValue;
     
-    public static float linearNaik(float umur){
-        output = (umur - a) / (b - a);        
+    private static double linearNaik(int umur){
+        output = (umur - a) / (b - a);
+        System.out.println("a : "+a+", b : "+b);
+        System.out.println(output);
         return output;
     }
     
-    public static float linearTurun(float umur){
+    private static double linearTurun(int umur){
         output = (b - umur) / (b - a);           
+        System.out.println("a : "+a+", b : "+b);
+        System.out.println(output);
         return output;
     }
     
-    public static float segitiga(float umur){
+    private static int segitiga(int umur){
         return output;
     }
     
-    public static float trapesium(float umur){        
+    private static int trapesium(int umur){        
         return output;
     }
     
-    private static void cekUmur(float umur){
-        if (umur <= 5f){
-            a = 0f;
-            b = 5f;
+    public static double cekUmur(int umur){
+        if (umur <= 5){
+            returnValue = 1;
         }
-        else if (umur <= 11f){
-            a = 5f;
-            b = 11f;
+        else if (umur <= 11){
+            a = 5;
+            b = 11;
+            returnValue = linearTurun(umur);
         }
-        else if (umur <= 25f){
-            a = 11f;
-            b = 25f;
+        else if (umur <= 25){
+            a = 11;
+            b = 25;
+            returnValue = linearNaik(umur);
         }
-        else if (umur <= 45f){
-            a = 25f;
-            b = 45f;
+        else if (umur <= 45){
+            a = 25;
+            b = 45;
+            returnValue = linearTurun(umur);
         } 
-        else{
-            a = 45f;
-            b = 65f;
+        else if (umur <= 65){
+            a = 45;
+            b = 65;
+            returnValue = linearNaik(umur);
         }
+        else{
+            returnValue = 1;
+        }
+        System.out.println(returnValue);
+        return returnValue;
     }
 }
